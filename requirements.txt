@@ -1,0 +1,6 @@
+pandas
+matplotlib
+groq
+sentence-transformers
+numpy
+python-dotenv
