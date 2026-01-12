@@ -1,6 +1,6 @@
-# Personal Finance Tracker Chatbot (RAG-based)
+# SpendWise AI- Personal Finance Tracker Chatbot (RAG-based)
 
-The **Personal Finance Tracker Chatbot** is an **interactive, Retrieval-Augmented Generation (RAG) powered finance assistant** that analyzes personal transaction data and answers natural language questions about spending patterns, categories, merchants, and trends.
+ **SpendWise AI**,a **Personal Finance Tracker Chatbot** is an **interactive, Retrieval-Augmented Generation (RAG) powered finance assistant** that analyzes personal transaction data and answers natural language questions about spending patterns, categories, merchants, and trends.
 
 The system combines **rule-based analytics**, **semantic search over transaction embeddings**, and a **large language model (LLM)** to deliver **accurate, grounded, and explainable financial insights**, avoiding hallucinations by strictly using user-provided data.
 
