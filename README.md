@@ -62,13 +62,13 @@ This project combines **data analytics, Retrieval-Augmented Generation (RAG), an
 git clone https://github.com/MadhavSrinath22/PERSONAL_FINACETRACKER_CHATBOT.git
 cd PERSONAL_FINACETRACKER_CHATBOT
 
-2️⃣ Install Dependencies
+### 2️⃣ Install Dependencies
 pip install -r requirements.txt
 
-3️⃣ Create a .env File
+### 3️⃣ Create a .env File
 GROQ_API_KEY=your_api_key_here
 
-▶️ Running the Application
+### ▶️ Running the Application
 python app.py
 
 You will be prompted with:
@@ -103,7 +103,7 @@ Suggestions:
 2. Compare prices across stores
 3. Track impulse purchases
 
-🛠️ Technologies Used
+###🛠️ Technologies Used
 
 Python
 
@@ -117,7 +117,7 @@ Sentence Transformers(Hugging Face)
 
 Retrieval-Augmented Generation (RAG)
 
-🎯 Learning Outcomes
+###🎯 Learning Outcomes
 
 Designed a modular Python application
 
@@ -129,7 +129,7 @@ Built an end-to-end AI-powered analytics tool
 
 Followed production-grade project structure
 
-📌 Future Improvements
+###📌 Future Improvements
 
 Web UI using Streamlit
 
@@ -139,7 +139,7 @@ Budget alerts and anomaly detection
 
 Multi-user support
 
-👤 Author
+###👤 Author
 
 Madhav Srinath
 Graduate Student @University of Waterloo– Electrical & Computer Engineering
