@@ -90,7 +90,8 @@ Analytics   RAG Engine   Rule-based
 +------------------------+
 ```
 ---
-##📂 Project Structure
+📂 Project Structure
+---
 ```text
 PERSONAL_FINACETRACKER_CHATBOT/
 ├── app.py
@@ -110,7 +111,8 @@ PERSONAL_FINACETRACKER_CHATBOT/
 │   └── llm.py
 ```
 ---
-##⚙️ Setup Instructions
+⚙️ Setup Instructions
+---
 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/MadhavSrinath22/PERSONAL_FINACETRACKER_CHATBOT.git
@@ -130,8 +132,8 @@ GROQ_API_KEY=your_api_key_here
 python app.py
 ```
 ---
-##💬 Example Questions You Can Ask
-
+💬 Example Questions You Can Ask
+---
 Which category did I spend the most on?
 
 Which merchant did I spend the most at?
@@ -143,9 +145,12 @@ Why was Starbucks categorized as Coffee?
 What were my top merchants last month?
 
 Explain my spending pattern
+
 ---
 
-##🧾 Example Output
+🧾 Example Output
+---
+```bash
 AI Insight:
 
 Main insight:
@@ -160,14 +165,16 @@ Suggestions:
 1. Set a monthly grocery budget
 2. Compare prices across stores
 3. Track impulse purchases
+```
 ---
-
 ##👤 Author
+---
 Madhav Srinath
-Graduate Student – Electrical & Computer Engineering
+Graduate Student – MEng Electrical & Computer Engineering
 University of Waterloo
 ---
 📄 License
+---
 This project is released for educational and personal use.
 
 
