@@ -167,11 +167,13 @@ Suggestions:
 3. Track impulse purchases
 ```
 ---
-##👤 Author
+👤 Author
 ---
-Madhav Srinath
+Madhav Srinath Thanigaivel 
+
 Graduate Student – MEng Electrical & Computer Engineering
 University of Waterloo
+
 ---
 📄 License
 ---
