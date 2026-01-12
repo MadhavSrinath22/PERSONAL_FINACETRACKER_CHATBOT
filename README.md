@@ -88,9 +88,10 @@ Analytics   RAG Engine   Rule-based
 +------------------------+
 | Structured Answer     |
 +------------------------+
-
+```
 ---
 ##📂 Project Structure
+```text
 PERSONAL_FINACETRACKER_CHATBOT/
 ├── app.py
 ├── requirements.txt
@@ -107,8 +108,66 @@ PERSONAL_FINACETRACKER_CHATBOT/
 │   ├── embeddings.py
 │   ├── rag.py
 │   └── llm.py
-
+```
 ---
-⚙️ Setup Instructions
+##⚙️ Setup Instructions
+1️⃣ Clone the Repository
+```bash
 git clone https://github.com/MadhavSrinath22/PERSONAL_FINACETRACKER_CHATBOT.git
 cd PERSONAL_FINACETRACKER_CHATBOT
+```
+2️⃣ Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+3️⃣ Configure API Key
+Create a .env file in the project root:
+```bash
+GROQ_API_KEY=your_api_key_here
+```
+4️⃣ Run the Application
+```bash
+python app.py
+```
+---
+##💬 Example Questions You Can Ask
+
+Which category did I spend the most on?
+
+Which merchant did I spend the most at?
+
+Show my monthly transaction breakdown
+
+Why was Starbucks categorized as Coffee?
+
+What were my top merchants last month?
+
+Explain my spending pattern
+---
+
+##🧾 Example Output
+AI Insight:
+
+Main insight:
+- You spent the most on Groceries.
+
+Details:
+1. Total spent on Groceries: $200.50
+2. Frequent grocery transactions detected
+3. Groceries account for the largest share of expenses
+
+Suggestions:
+1. Set a monthly grocery budget
+2. Compare prices across stores
+3. Track impulse purchases
+---
+
+##👤 Author
+Madhav Srinath
+Graduate Student – Electrical & Computer Engineering
+University of Waterloo
+---
+📄 License
+This project is released for educational and personal use.
+
+
