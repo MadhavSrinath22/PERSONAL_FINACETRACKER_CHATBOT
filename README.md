@@ -1,56 +1,141 @@
-# 💰 Personal Finance Tracker Chatbot
+# Personal Finance Tracker Chatbot (RAG-based)
 
-An AI-powered personal finance assistant that helps you **analyze spending patterns, answer natural-language questions about your expenses, and provide actionable financial insights** using transaction data.
+The **Personal Finance Tracker Chatbot** is an **interactive, Retrieval-Augmented Generation (RAG) powered finance assistant** that analyzes personal transaction data and answers natural language questions about spending patterns, categories, merchants, and trends.
 
-This project combines **data analytics, Retrieval-Augmented Generation (RAG), and Large Language Models (LLMs)** to deliver structured, explainable financial insights.
+The system combines **rule-based analytics**, **semantic search over transaction embeddings**, and a **large language model (LLM)** to deliver **accurate, grounded, and explainable financial insights**, avoiding hallucinations by strictly using user-provided data.
 
----
-
-## 🚀 Features
-
-- 📊 **Transaction Analysis**
-  - Load and analyze transaction data from CSV
-  - Aggregate spending by category and merchant
-  - Identify top spending areas
-
-- 🤖 **AI-Powered Q&A**
-  - Ask questions like:
-    - *Where did I spend the most?*
-    - *Which merchant did I spend the most on?*
-    - *How can I reduce my expenses?*
-  - Uses an LLM with **strict grounding in your data**
-
-- 🧠 **Retrieval-Augmented Generation (RAG)**
-  - Embeddings-based retrieval over transaction summaries
-  - Ensures responses are based only on your spending data
-
-- 📈 **Visual Insights**
-  - Monthly spending visualization using Matplotlib
-
-- 🔐 **Secure API Key Handling**
-  - API keys managed via `.env`
-  - Secrets excluded from version control
+This project demonstrates an end-to-end **RAG pipeline applied to structured financial data**, built using Python and modular system design.
 
 ---
 
-## 🗂️ Project Structure
+## 🚀 Key Features
 
-.
+* **Transaction Categorization**
+  * Rule-based keyword matching across merchant and description fields
+  * Transparent and explainable category assignment
+
+* **Spending Analytics**
+  * Category-wise totals and transaction counts
+  * Monthly spending summaries and breakdowns
+  * Merchant-level aggregation and ranking
+
+* **Retrieval-Augmented Generation (RAG)**
+  * Transactions embedded using Sentence Transformers
+  * Semantic search retrieves relevant transactions per query
+  * LLM responses grounded only in retrieved + computed context
+
+* **Natural Language Q&A**
+  * Ask questions like:
+    * “Which category did I spend the most on?”
+    * “Which merchant did I spend the most at?”
+    * “Explain why Amazon was categorized as Shopping”
+    * “Show my monthly transaction breakdown”
+
+* **Explainability-first Design**
+  * Explicit prompts restrict the LLM from guessing
+  * Category explanations supported with transaction context
+
+* **Modular Codebase**
+  * Clean separation of data loading, analytics, embeddings, RAG logic, and LLM interaction
+  * Easy to extend to UI frameworks like Streamlit
+
+---
+
+## 🧠 Motivation
+
+Most finance chatbots either:
+* Rely entirely on LLMs (leading to hallucinations), or
+* Provide static dashboards without conversational intelligence
+
+This project bridges the gap by:
+* **Anchoring LLM reasoning to real transaction data**
+* **Combining deterministic analytics with semantic retrieval**
+* **Ensuring transparency and correctness in financial insights**
+
+The result is a **trustworthy personal finance assistant** suitable for real-world extensions.
+
+## 🏗️ System Architecture
+
+---
++------------------------+
+| User (CLI / UI) |
++-----------+------------+
+|
+v
++------------------------+
+| Query Router (app.py) |
++-----------+------------+
+|
+-------------------------
+| | |
+v v v
+Analytics RAG Engine Rule-based
+(stats.py) (embeddings) Categorization
+| |
+-----------+
+|
+v
++------------------------+
+| Context Builder |
++-----------+------------+
+|
+v
++------------------------+
+| LLM (Groq / LLaMA) |
++------------------------+
+|
+v
++------------------------+
+| Structured Answer |
++------------------------+
+
+---
+
+## ⚙️ Methodology Overview
+
+### Transaction Processing
+* CSV transaction data loaded via Pandas
+* Dates normalized and categories assigned
+
+### Analytics Layer
+* Group-by aggregations for:
+  * Category totals
+  * Monthly summaries
+  * Merchant-wise spending
+* Deterministic computations ensure correctness
+
+### Embedding & Retrieval
+* Each transaction converted into descriptive text
+* Embedded using `all-MiniLM-L6-v2`
+* Cosine similarity used for semantic search
+
+### RAG Prompting
+* Retrieved transactions injected into prompt
+* LLM instructed to:
+  * Use only provided context
+  * Follow a strict response structure
+  * Avoid assumptions
+
+---
+
+## 📂 Project Structure
+
+PERSONAL_FINACETRACKER_CHATBOT/
 ├── app.py # Main application entry point
 ├── requirements.txt # Python dependencies
+├── .gitignore # Git ignore rules
 ├── data/
-│ └── transactions.csv # Transaction dataset
+│ └── transactions.csv # Sample transaction dataset
 ├── src/
 │ ├── init.py
-│ ├── analytics.py # Spending analytics & summaries
-│ ├── categorizer.py # Transaction categorization
-│ ├── merchants.py # Merchant-level analysis
+│ ├── config.py # Environment & API key loading
 │ ├── data_loader.py # CSV loading utilities
+│ ├── categorizer.py # Transaction categorization logic
+│ ├── analytics.py # Spending analytics & summaries
+│ ├── merchants.py # Merchant-level utilities
 │ ├── embeddings.py # Embedding generation
-│ ├── rag.py # RAG logic
-│ ├── llm.py # LLM prompts & responses
-│ └── config.py # Environment & API key management
-└── .gitignore
+│ ├── rag.py # Semantic retrieval logic
+│ └── llm.py # LLM prompting & response handling
 
 
 ---
@@ -61,91 +146,39 @@ This project combines **data analytics, Retrieval-Augmented Generation (RAG), an
 ```bash
 git clone https://github.com/MadhavSrinath22/PERSONAL_FINACETRACKER_CHATBOT.git
 cd PERSONAL_FINACETRACKER_CHATBOT
-```bash
 
-### 2️⃣ Install Dependencies
-```bash
+### 1️⃣ Clone the Repository
+2️⃣ Install Dependencies
 pip install -r requirements.txt
-```bash
-### 3️⃣ Create a .env File
-```bash
+
+###3️⃣ Configure API Key
+Create a .env file in the project root:
 GROQ_API_KEY=your_api_key_here
-```bash
 
-### ▶️ Running the Application
-```bash
-python app.py
-```bash
+###4️⃣ Run the Application
 
-You will be prompted with:
-Ask about your spending (or type 'exit'):
+---
+##💬 Example Questions You Can Ask
 
-### 🧠 Example Questions
+“Which category did I spend the most on?”
 
-Which category did I spend the most on?
+“Which merchant did I spend the most at?”
 
-Which merchant did I spend the most on?
+“Show my monthly transaction breakdown”
 
-Why was Uber categorized as transport?
+“Why was Starbucks categorized as Coffee?”
 
-How can I reduce my expenses?
+“What were my top merchants last month?”
 
-Summarize my spending behavior
+“Explain my spending pattern”
+---
 
-### 🧾 Example Output
-AI Insight:
-
-Main insight:
-- You spent the most on Groceries.
-
-Details:
-1. Total spent on Groceries: $200.50
-2. Frequent grocery transactions detected
-3. Groceries account for the largest share of expenses
-
-Suggestions:
-1. Set a monthly grocery budget
-2. Compare prices across stores
-3. Track impulse purchases
-
-###🛠️ Technologies Used
-
-Python
-
-Pandas, NumPy
-
-Matplotlib
-
-Groq LLM (LLaMA 3)
-
-Sentence Transformers(Hugging Face)
-
-Retrieval-Augmented Generation (RAG)
-
-###🎯 Learning Outcomes
-
-Designed a modular Python application
-
-Implemented RAG for grounded AI responses
-
-Integrated LLM APIs securely
-
-Built an end-to-end AI-powered analytics tool
-
-Followed production-grade project structure
-
-###📌 Future Improvements
-
-Web UI using Streamlit
-
-Persistent storage with a database
-
-Budget alerts and anomaly detection
-
-Multi-user support
-
-###👤 Author
+## Author
 
 Madhav Srinath
-Graduate Student @University of Waterloo– Electrical & Computer Engineering
 
+Graduate Student @ University of Waterloo– Electrical & Computer Engineering
+Focus Areas: Embedded Systems, Distributed Systems, Machine Learning, RAG Architectures
+---
+📄 License
+This project is released for educational and personal use.
