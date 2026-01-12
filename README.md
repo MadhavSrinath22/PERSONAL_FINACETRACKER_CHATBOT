@@ -61,21 +61,26 @@ This project combines **data analytics, Retrieval-Augmented Generation (RAG), an
 ```bash
 git clone https://github.com/MadhavSrinath22/PERSONAL_FINACETRACKER_CHATBOT.git
 cd PERSONAL_FINACETRACKER_CHATBOT
+```bash
 
 ### 2️⃣ Install Dependencies
+```bash
 pip install -r requirements.txt
-
+```bash
 ### 3️⃣ Create a .env File
+```bash
 GROQ_API_KEY=your_api_key_here
+```bash
 
 ### ▶️ Running the Application
+```bash
 python app.py
+```bash
 
 You will be prompted with:
-
 Ask about your spending (or type 'exit'):
 
-🧠 Example Questions
+### 🧠 Example Questions
 
 Which category did I spend the most on?
 
@@ -87,7 +92,7 @@ How can I reduce my expenses?
 
 Summarize my spending behavior
 
-🧾 Example Output
+### 🧾 Example Output
 AI Insight:
 
 Main insight:
